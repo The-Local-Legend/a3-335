@@ -20,8 +20,33 @@ h1{
 }
 #nav button{
     padding:5px;
-    background-color: rgb(172, 123, 68);
+    
     border:none;
     font-size:20px;
     margin-right:10px;
+}
+#nav button:hover{
+    cursor: pointer;
+    background-color: rgb(216, 161, 97);
+}
+#homebtn{background-color: rgb(172, 123, 68);}
+#shopbtn{background-color: rgb(172, 123, 68);}
+#regobtn{background-color: rgb(172, 123, 68);}
+#loginbtn{background-color: rgb(172, 123, 68); display:none;}
+#playbtn{background-color: rgb(172, 123, 68);}
+#guestbtn{background-color: rgb(172, 123, 68);}
+.bcolor{
+    background-color: rgb(231, 201, 136);
+}
+#home{
+    width:100%;
+    display: block;
+}
+#shop{
+   
+    width:100%;
+    display: none;
+}
+p{
+    margin:0px;
 }

@@ -2,23 +2,41 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
-        
+        <script src="script.js" defer="true"></script>
     </head>
     <body>
         <div id="header">
             <h1>Game Academy</h1>
         </div>
         <div id="nav">
-            <button>🏠Home</button>
-            <button>🛒Shop</button>
-            <button id="rego">✍Register</button>
-            <button id="login">👩Login</button>
-            <button>♚Play</button>
+            <button id="homebtn" onclick="home()">🏠Home</button>
+            <button id="shopbtn" onclick="shop()">🛒Shop</button>
+            <button id="regobtn" onclick="rego()">✍Register</button>
+            <button id="loginbtn" onclick="login()">👩Login</button>
+            <button id="playbtn" onclick="play()">♚Play</button>
+            <button id="guestbtn" onclick="guest()">📖Guest Book</button>
+        </div>
+        <div id="home" class="bcolor">
+           <p>home</p>
+           <p id="Version">test</p>
+        </div>
+        <div id="shop" class="bcolor">
+            <p>shop</p>
+        </div>
+        <div id="rego">
+            <p>rego</p>
+        </div>
+        <div id="login">
+            <p>login</p>
+        </div>
+        <div id="play">
+            <p>play</p>
+        </div>
+        <div id="guest">
+            <p>guest</p>
         </div>
 
-        <div id="footer">
-            <p id="Version">test</p>
-        </div>
-        <script src="script.js"></script>
+        
+        
     </body>
 </html>
