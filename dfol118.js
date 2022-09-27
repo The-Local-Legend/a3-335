@@ -1,3 +1,8 @@
+let username, password = "";
+let loggedin = false;
+
+
+
 const getVersion = () => {
     const fetchprom = fetch("https://cws.auckland.ac.nz/gas/api/Version",
     {
@@ -31,6 +36,96 @@ const submitrego  = async () =>{
     document.getElementById("regresult").innerHTML = loginresponse;
 }
 
+const dologin = async (usernameattempt, passwordattempt) =>{
+    
+    const fetchprom = await fetch("https://cws.auckland.ac.nz/gas/api/VersionA",{
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${btoa(`${usernameattempt}:${passwordattempt}`)}`
+        }
+    });
+    if(fetchprom.status == 200){
+        console.log("yay");
+        username = usernameattempt;
+        password = passwordattempt;
+        document.getElementById("loginbtn").style.display = "none";
+        document.getElementById("currentuser").innerHTML = "Logged in as " + username;
+        document.getElementById("loginstatus").innerHTML = "Login successful";
+        document.getElementById("logout").style.display = "inline";
+        loggedin = true;
+    }
+    else{
+        document.getElementById("loginstatus").innerHTML = "Login details invalid";
+        console.log(fetchprom.text());
+    }
+}
+const getAllItems = async() => {
+    const fetchprom =   fetch(`https://cws.auckland.ac.nz/gas/api/AllItems`, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+    const jsonprom = fetchprom.then((items) => items.json());
+    const data = await jsonprom.then((items) => {return items});
+    let htmlString = "";
+    
+    data.forEach(async(item) => {
+        
+            htmlString += `<tr><td><img src="https://cws.auckland.ac.nz/gas/api/ItemPhoto/${item.id}" width="25%" alt="${item.name}">
+            
+                <h4 id="itemName">${item.name}</h4> 
+                <p>${item.description}</p> 
+                <br>
+                <p>$${item.price}</p>
+                <br>
+                <button type="button" onclick=buyItem(${item.id})>Buy Now</button>
+               
+            </td></tr>`
+        
+        
+        
+    });
+    document.getElementById("goodstable").innerHTML = htmlString;
+}
+const getItems = async(search = "") => {
+    const fetchprom =   fetch(`https://cws.auckland.ac.nz/gas/api/Items/${search}`, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+    const jsonprom = fetchprom.then((items) => items.json());
+    const data = await jsonprom.then((items) => {return items});
+    let htmlString = "";
+    
+    data.forEach(async(item) => {
+        
+            htmlString += `<tr><td><img src="https://cws.auckland.ac.nz/gas/api/ItemPhoto/${item.id}" width="25%" alt="${item.name}">
+            
+                <h4 id="itemName">${item.name}</h4> 
+                <p>${item.description}</p> 
+                <br>
+                <p>$${item.price}</p>
+                <br>
+                <button type="button" onclick=buyItem(${item.id})>Buy Now</button>
+               
+            </td></tr>`
+        
+        
+        
+    });
+    document.getElementById("goodstable").innerHTML = htmlString;
+}
+function logout(){
+    username = "";
+    password = "";
+    document.getElementById("loginbtn").style.display = "inline";
+    document.getElementById("currentuser").innerHTML = "";
+    document.getElementById("logout").style.display = "none";
+    document.getElementById("loginstatus").innerHTML = "";
+    loggedin = false;
+}
 function move(){
     document.getElementById("home").style.display = "none";
     document.getElementById("shop").style.display = "none";
@@ -54,6 +149,7 @@ function shop(){
     move();
     document.getElementById("shop").style.display = "block";
     document.getElementById("shopbtn").style.backgroundColor = "rgb(216, 161, 97)";
+    getAllItems();
 }
 function rego(){
     move();

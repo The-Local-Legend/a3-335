@@ -13,6 +13,11 @@ h1{
     margin:0px;
     padding:20px;
     font-size:80px;
+    display: inline;
+}
+#header img{
+    height:100px;
+    margin:10px;
 }
 #nav{
     margin:0px;
@@ -36,6 +41,8 @@ h1{
 #loginbtn{background-color: rgb(172, 123, 68); }
 #playbtn{background-color: rgb(172, 123, 68);}
 #guestbtn{background-color: rgb(172, 123, 68);}
+#logout{background-color: rgb(172, 123, 68); float:right;}
+#currentuser{font-size:18px; float:right; padding: 5px; margin-right:10px;}
 .bcolor{
     background-color: rgb(231, 201, 136);
 }
@@ -48,8 +55,15 @@ h1{
     height:100%;
     width:100%;
     display: none;
+    text-align: center;
 }
 #rego{
+    width:100%;
+    display: none;
+    text-align: center;
+    height:100%;
+}
+#login{
     width:100%;
     display: none;
     text-align: center;
@@ -89,4 +103,55 @@ p{
 }
 #regresult{
     text-align: center;
+}
+#loginbox{
+    width:30%;
+    background-color: rgb(177, 147, 102);
+    margin-left:30%;
+    text-align: left;
+    padding:5%;
+}
+#login h1{
+    font-size:40px;
+}
+#loginbox label, #loginbox input{
+    font-size:25px;
+    margin-left:27.5%;
+}
+#loginbox input{
+    width:45%;
+}
+#loginbox button{
+    font-size:25px;
+    margin-top:5%;
+    width:20%;
+    border:none;
+    margin-left:40%;
+    background-color: rgb(172, 123, 68);
+}
+#loginbox button:hover{
+    background-color: rgb(216, 161, 97);
+    cursor: pointer;
+}
+#loginstatus{text-align: center;}
+#shopbox{
+    margin-top:20px;
+    width:50%;
+    background-color: rgb(177, 147, 102);
+    margin-left:25%;
+    text-align: center;
+    overflow-y: scroll;
+    max-height: 70%;
+}
+#shopbox input{
+    width:50%;
+    margin-top:10px;
+    margin-bottom:10px;
+    
+}
+#shopbox table p, #shopbox table h4, #shopbox table img, #shopbox table button{
+    margin-left:180px;
+}
+#shopbox table button{
+    margin-bottom:10px;
 }

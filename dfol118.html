@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="script.js" defer="true"></script>
+        <link rel="stylesheet" type="text/css" href="dfol118.css">
+        <script src="dfol118.js" defer="true"></script>
+        <link rel="icon" type="image/x-icon" href="https://cws.auckland.ac.nz/gas/api/Favicon">
     </head>
-    <body>
+    <body onload="logout()">
         <div id="header">
+            <img id="siteLogo" src="https://cws.auckland.ac.nz/gas/api/Logo" />
             <h1>Game Academy</h1>
         </div>
         <div id="nav">
@@ -15,13 +17,23 @@
             <button id="loginbtn" onclick="login()">👩Login</button>
             <button id="playbtn" onclick="play()">♚Play</button>
             <button id="guestbtn" onclick="guest()">📖Guest Book</button>
+            <button id="logout" onclick="logout()">Logout</button>
+            <p id="currentuser"></p>
+            
+
         </div>
         <div id="home" class="bcolor">
            <p>home</p>
            <p id="Version">test</p>
         </div>
         <div id="shop" class="bcolor">
-            <p>shop</p>
+            <h1>Shop</h1>
+            <div id="shopbox" onload="getAllItems()">
+                <input type="search" name="usersearch" id="usersearch" oninput=getItems(usersearch.value) placeholder="Search goods">
+                <table id="goodstable" cellspacing="0" width="80%"></table>
+
+            </div>
+            
         </div>
         <div id="rego" class="bcolor">
             <h1>Register account</h1>
@@ -34,11 +46,19 @@
                 <label for="address">Address:</label><br>
                 <input type="address" id="address" name="address"><br>
                 <button id="submit" onclick="submitrego()">Submit</button>
-                <h2 id="regresult"> test</h2>
+                <h2 id="regresult"> </h2>
             </div>
         </div>
-        <div id="login">
-            <p>login</p>
+        <div id="login" class="bcolor">
+            <h1>Login</h1>
+            <div id="loginbox">
+                <label for="username">Username:</label><br>
+                <input type="text" id="loginusername" name="username"><br>
+                <label for="password">Password:</label><br>
+                <input type="text" id="loginpassword" name="password"><br>
+                <button id="loginbtn" onclick="dologin(loginusername.value, loginpassword.value)">Login</button>
+                <h2 id="loginstatus"> </h2>
+            </div>
             
         </div>
         <div id="play">
