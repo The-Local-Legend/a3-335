@@ -1,0 +1,27 @@
+#header{
+    background-image: linear-gradient(to right, rgb(190, 129, 48), rgb(216, 177, 141));
+    margin:0px;
+    padding:0px;
+}
+body{
+    margin:0px;
+    padding:0px;
+}
+
+h1{
+    margin:0px;
+    padding:20px;
+    font-size:80px;
+}
+#nav{
+    margin:0px;
+    background-color: rgb(214, 191, 126);
+    padding:10px;
+}
+#nav button{
+    padding:5px;
+    background-color: rgb(172, 123, 68);
+    border:none;
+    font-size:20px;
+    margin-right:10px;
+}
