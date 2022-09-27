@@ -109,13 +109,35 @@ const getItems = async(search = "") => {
                 <p>$${item.price}</p>
                 <br>
                 <button type="button" onclick=buyItem(${item.id})>Buy Now</button>
-               
+                <div id="purchaseMessage${item.id}" class="modal"><div id="innermessage${item.id}" class="innercontent"></div></div>
             </td></tr>`
         
         
         
     });
     document.getElementById("goodstable").innerHTML = htmlString;
+}
+const buyItem = (id) => {
+    if(loggedin){
+        fetch(`https://cws.auckland.ac.nz/gas/api/PurchaseItem/${id}`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Basic ${btoa(`${username}:${password}`)}`
+            }
+        });
+        const message = document.getElementById(`innermessage${id}`);
+        console.log(id);
+        console.log(message);
+        const messagemodal = document.getElementById(`purchaseMessage${id}`);
+        message.innerHTML = `Thank you for purchasing our product. <span class="close" onclick=closemessage("purchaseMessage${id}")>&times;</span>`;
+        messagemodal.style.display = "block";
+    }
+    else{
+        login();
+    }
+}
+function closemessage(div){
+    document.getElementById(div).style.display = "none";
 }
 function logout(){
     username = "";

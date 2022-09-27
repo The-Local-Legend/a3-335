@@ -4,6 +4,7 @@
         <link rel="stylesheet" type="text/css" href="dfol118.css">
         <script src="dfol118.js" defer="true"></script>
         <link rel="icon" type="image/x-icon" href="https://cws.auckland.ac.nz/gas/api/Favicon">
+        <title>Game Academy</title>
     </head>
     <body onload="logout()">
         <div id="header">
@@ -28,7 +29,7 @@
         </div>
         <div id="shop" class="bcolor">
             <h1>Shop</h1>
-            <div id="shopbox" onload="getAllItems()">
+            <div id="shopbox">
                 <input type="search" name="usersearch" id="usersearch" oninput=getItems(usersearch.value) placeholder="Search goods">
                 <table id="goodstable" cellspacing="0" width="80%"></table>
 
