@@ -14,7 +14,23 @@ const getVersion = () => {
     
 }
 getVersion();
-let loggedin = false;
+const submitrego  = async () =>{
+    let usern = document.getElementById("username").value;
+    let passw = document.getElementById("password").value;
+    let addr = document.getElementById("address").value;
+    const data = JSON.stringify({username: usern, password: passw, address: addr});
+    console.log(data);
+    const fetchprom = await fetch("https://cws.auckland.ac.nz/gas/api/Register", {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json",
+        },
+        body: data,
+    });
+    let loginresponse = await fetchprom.text();
+    document.getElementById("regresult").innerHTML = loginresponse;
+}
+
 function move(){
     document.getElementById("home").style.display = "none";
     document.getElementById("shop").style.display = "none";

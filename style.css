@@ -3,9 +3,10 @@
     margin:0px;
     padding:0px;
 }
-body{
+html, body{
     margin:0px;
     padding:0px;
+    height:100%;
 }
 
 h1{
@@ -32,7 +33,7 @@ h1{
 #homebtn{background-color: rgb(172, 123, 68);}
 #shopbtn{background-color: rgb(172, 123, 68);}
 #regobtn{background-color: rgb(172, 123, 68);}
-#loginbtn{background-color: rgb(172, 123, 68); display:none;}
+#loginbtn{background-color: rgb(172, 123, 68); }
 #playbtn{background-color: rgb(172, 123, 68);}
 #guestbtn{background-color: rgb(172, 123, 68);}
 .bcolor{
@@ -41,12 +42,51 @@ h1{
 #home{
     width:100%;
     display: block;
+    height:100%;
 }
 #shop{
-   
+    height:100%;
     width:100%;
     display: none;
 }
+#rego{
+    width:100%;
+    display: none;
+    text-align: center;
+    height:100%;
+}
 p{
     margin:0px;
+}
+#regobox{
+    width:30%;
+    background-color: rgb(177, 147, 102);
+    margin-left:30%;
+    text-align: left;
+    padding:5%;
+}
+#rego h1{
+    font-size:40px;
+}
+#regobox label, #regobox input{
+    font-size:25px;
+    margin-left:27.5%;
+}
+#regobox input{
+    width:45%;
+}
+#regobox button{
+    font-size:25px;
+    margin-top:5%;
+    width:20%;
+    border:none;
+    margin-left:40%;
+    background-color: rgb(172, 123, 68);
+}
+#regobox button:hover{
+    background-color: rgb(216, 161, 97);
+    cursor: pointer;
+}
+#regresult{
+    text-align: center;
 }
