@@ -142,7 +142,25 @@ const getComments = async() => {
     await fetchresult.then((comments) => document.getElementById("recentcomments").innerHTML = comments);
 }
 const postComment = async() => {
-    const comment = JSON.stringify({Comment: document.getElementById("comment").value, Name: username});
+    let commentsend;
+    if(username == ""){
+        commentsend = JSON.stringify({Comment: document.getElementById("comment").value, Name: "Guest"});
+    }
+    else{
+        commentsend = JSON.stringify({Comment: document.getElementById("comment").value, Name: username});
+    }
+    console.log(commentsend)
+    
+    const resp = await fetch("https://cws.auckland.ac.nz/gas/api/Comment", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body:commentsend,
+    });
+    console.log(resp);
+    getComments();
+    document.getElementById("comment").value = "";
 }
 function closemessage(div){
     document.getElementById(div).style.display = "none";
