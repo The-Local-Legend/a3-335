@@ -109,7 +109,7 @@ const getItems = async(search = "") => {
                 <p>$${item.price}</p>
                 <br>
                 <button type="button" onclick=buyItem(${item.id})>Buy Now</button>
-                <div id="purchaseMessage${item.id}" class="modal"><div id="innermessage${item.id}" class="innercontent"></div></div>
+                <div id="purchaseMessage${item.id}" class="modal"> <div id="innermessage${item.id}" class="innercontent"></div></div>
             </td></tr>`
         
         
@@ -135,6 +135,14 @@ const buyItem = (id) => {
     else{
         login();
     }
+}
+const getComments = async() => {
+    const fetchprom = fetch("https://cws.auckland.ac.nz/gas/api/Comments");
+    const fetchresult = fetchprom.then((comments) => comments.text());
+    await fetchresult.then((comments) => document.getElementById("recentcomments").innerHTML = comments);
+}
+const postComment = async() => {
+    const comment = JSON.stringify({Comment: document.getElementById("comment").value, Name: username});
 }
 function closemessage(div){
     document.getElementById(div).style.display = "none";
@@ -192,5 +200,6 @@ function guest(){
     move();
     document.getElementById("guest").style.display = "block";
     document.getElementById("guestbtn").style.backgroundColor = "rgb(216, 161, 97)";
+    getComments();
 }
 home();

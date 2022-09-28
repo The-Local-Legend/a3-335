@@ -65,8 +65,19 @@
         <div id="play">
             <p>play</p>
         </div>
-        <div id="guest">
-            <p>guest</p>
+        <div id="guest" class="bcolor">
+            <h1>Comments</h1>
+            <div id="commentbox">
+                <div id="writecomment">
+                    <label for="comment">Write Comment</label><br>
+                    <input type="text" id="comment" name="comment">
+                    <button id="postcomment" onclick="postComment()">Post</button>
+                </div>
+                
+                <h4>Recent Comments</h4>
+                <p id="recentcomments"> </p>
+                
+            </div>
         </div>
 
         
